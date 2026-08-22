@@ -1,3 +1,3 @@
 /**
- * Add app functions here
+ * Add main startup functionality here
  */
