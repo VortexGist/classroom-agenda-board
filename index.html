@@ -42,9 +42,49 @@
                 </div> -->
             </div>
         </div>
-        <!-- CLASSROOM TASKS -->
-        <div id="tab-classroom-tasks" class="hidden">
-            <h1>Classroom Tasks</h1>
+        <!-- CLEANERS -->
+        <div id="tab-cleaners" class="hidden">
+            <h1>Setup Cleaners</h1>
+            <div>
+                <!-- <select id="input">
+                    <option>Daniel</option>
+                </select> -->
+                <h3>Day 1</h3>
+                <ol id="day1-cleaner-list">
+                    <li class="ghost-list-item">No cleaners assigned</li>
+                    <!-- <li>Daniel<button class="btn-remove-list-item">X</button></li> -->
+                </ol>
+                <input id="input-day1-cleaner" type="text">
+                <button id="btn-add-day1-cleaner">Add Cleaner</button>
+
+                <h3>Day 2</h3>
+                <ol id="day2-cleaner-list">
+                    <li class="ghost-list-item">No cleaners assigned</li>
+                </ol>
+                <input id="input-day2-cleaner" type="text">
+                <button id="btn-add-day2-cleaner">Add Cleaner</button>
+
+                <h3>Day 3</h3>
+                <ol id="day3-cleaner-list">
+                    <li class="ghost-list-item">No cleaners assigned</li>
+                </ol>
+                <input id="input-day3-cleaner" type="text">
+                <button id="btn-add-day3-cleaner">Add Cleaner</button>
+
+                <h3>Day 4</h3>
+                <ol id="day4-cleaner-list">
+                    <li class="ghost-list-item">No cleaners assigned</li>
+                </ol>
+                <input id="input-day4-cleaner" type="text">
+                <button id="btn-add-day4-cleaner">Add Cleaner</button>
+
+                <h3>Day 5</h3>
+                <ol id="day5-cleaner-list">
+                    <li class="ghost-list-item">No cleaners assigned</li>
+                </ol>
+                <input id="input-day5-cleaner" type="text">
+                <button id="btn-add-day5-cleaner">Add Cleaner</button>
+            </div>
         </div>
         <!-- SUBJECT ACTIVITIES -->
         <div id="tab-subject-activities" class="hidden">
@@ -85,7 +125,7 @@
     <div id="app-bottom-bar">
         <div class="tab-ribbon">
             <button id="btn-announcements" class="ribbon-item selected">📣Announcements</button>
-            <button id="btn-classroom-tasks" class="ribbon-item">📝Classroom Tasks</button>
+            <button id="btn-cleaners" class="ribbon-item">🧹Cleaners</button>
             <button id="btn-subject-activities" class="ribbon-item">📖Subject Activities</button>
         </div>
     </div>
@@ -95,13 +135,13 @@
     <script type="text/javascript">
         let buttons = [
             document.querySelector("#btn-announcements"),
-            document.querySelector("#btn-classroom-tasks"),
+            document.querySelector("#btn-cleaners"),
             document.querySelector("#btn-subject-activities")
         ];
 
         let tabs = [
             document.querySelector("#tab-announcements"),
-            document.querySelector("#tab-classroom-tasks"),
+            document.querySelector("#tab-cleaners"),
             document.querySelector("#tab-subject-activities"),
         ];
 
@@ -124,6 +164,47 @@
                     // Select current tab button
                     btn.classList.add("selected");
                 }
+            };
+        }
+
+        // ======== CLEANERS
+
+        function constructCleanerListItem(cleanerName, cleanerListElement) {
+            let listItemButtonRemove = document.createElement("button");
+            listItemButtonRemove.innerHTML = "X";
+            listItemButtonRemove.classList.add("btn-remove-list-item");
+            listItemButtonRemove.onclick = () => {
+                if (cleanerListElement.children.length - 1 === 1) {
+                    cleanerListElement.querySelector(".ghost-list-item").classList.remove("hidden");
+                }
+
+                listItemButtonRemove.parentElement.remove();
+            };
+
+            let listItem = document.createElement("li");
+            listItem.innerHTML = cleanerName.trim();
+            listItem.append(listItemButtonRemove);
+
+            return listItem;
+        }
+
+        // Generate functions for five day cleaner lists
+        for (let i = 1; i <= 5; i++) {
+            document.querySelector("#btn-add-day" + i + "-cleaner").onclick = () => {
+                let cleanerName = document.querySelector("#input-day" + i + "-cleaner").value;
+
+                // Dont add empty names
+                if (cleanerName.trim() === "") {
+                    return;
+                }
+
+                let listDay = document.querySelector("#day" + i + "-cleaner-list");
+                
+                // Hide ghost message
+                listDay.querySelector(".ghost-list-item").classList.add("hidden");
+
+                // Construct and add list item
+                listDay.append(constructCleanerListItem(cleanerName, listDay));
             };
         }
 
@@ -191,7 +272,7 @@
                 ghostItem.classList.add("hidden");
             }
         };
-        
+
 
         // ======== ANNOUNCEMENTS
 

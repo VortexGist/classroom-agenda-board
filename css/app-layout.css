@@ -113,12 +113,24 @@
     text-align: center;
 }
 
+
 #btn-cancel-add-subject-activity,
 #btn-confirm-add-subject-activity,
 #btn-cancel-create-announcement,
 #btn-confirm-create-announcement {
     background-color: var(--theme-color-accent);
     padding: 15px;
+    border: solid 2px black;
+    border-radius: 13px;
+}
+
+#btn-add-day1-cleaner,
+#btn-add-day2-cleaner,
+#btn-add-day3-cleaner,
+#btn-add-day4-cleaner,
+#btn-add-day5-cleaner {
+    background-color: var(--theme-color-accent);
+    padding: 5px;
     border: solid 2px black;
     border-radius: 13px;
 }
