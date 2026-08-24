@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Classroom Agenda Board</title>
-    <link rel="stylesheet" href="./css/default-styles.css">
+    <link rel="stylesheet" href="./css/theme.css">
     <link rel="stylesheet" href="./css/app-layout.css">
     <link rel="stylesheet" href="./css/components.css">
 </head>
@@ -23,15 +23,23 @@
                 <label>Title:</label>
                 <input id="input-announcement-title" type="text">
                 <label>Description:</label>
-                <textarea id="input-announcement-description" rows="10" cols="100" value=""></textarea>
+                <textarea id="input-announcement-description" rows="10" cols="100"></textarea>
                 <button id="btn-confirm-create-announcement">Create Announcement</button>
                 <button id="btn-cancel-create-announcement">Cancel</button>
             </div>
             <div id="announcement-list" class="flexbox">
-                <div class="item">
-                    <p class="item-title">Get Started</p>
-                    <p class="item-description">Create a new announcement by clicking the plus button on the bottom right</p>
+                <div class="ghost-item">
+                    <p class="ghost-item-title">Get Started</p>
+                    <p class="ghost-item-description">
+                        Create a new announcement by clicking the plus button on the bottom
+                        right</p>
                 </div>
+                <!-- <div class="item">
+                    <p class="item-title">Get Started</p>
+                    <p class="item-description">
+                        Create a new announcement by clicking the plus button on the bottom
+                        right</p>
+                </div> -->
             </div>
         </div>
         <!-- CLASSROOM TASKS -->
@@ -40,7 +48,38 @@
         </div>
         <!-- SUBJECT ACTIVITIES -->
         <div id="tab-subject-activities" class="hidden">
-            <h1>Subject Activities</h1>
+            <button id="btn-add-subject-activity">+</button>
+            <div id="subject-activity-editor" class="hidden">
+                <h1 id="subject-activity-editor-title">Add Activity</h1>
+                <label>Subject:</label>
+                <select id="input-subject-activity-subject">
+                    <option>EAPP</option>
+                    <option>UCSP</option>
+                    <option>Computer Programming</option>
+                    <option>PEH</option>
+                </select>
+                <label>Activity Title:</label>
+                <input id="input-subject-activity-title" type="text" required>
+                <label>Description:</label>
+                <textarea id="input-subject-activity-description" rows="10" cols="100"></textarea>
+                <button id="btn-confirm-add-subject-activity">Add Activity</button>
+                <button id="btn-cancel-add-subject-activity">Cancel</button>
+            </div>
+            <div id="subject-activity-list" class="flexbox">
+                <div class="ghost-item">
+                    <p class="ghost-item-title">Get Started</p>
+                    <p class="ghost-item-description">
+                        Add a subject activity by clicking the plus button on the bottom
+                        right</p>
+                </div>
+                <!-- <div class="item">
+                    <p class="item-subject">Subject Name</p>
+                    <p class="item-title">Get Started</p>
+                    <p class="item-description">
+                        Add a subject activity by clicking the plus button on the bottom
+                        right</p>
+                </div> -->
+            </div>
         </div>
     </div>
     <div id="app-bottom-bar">
@@ -54,14 +93,6 @@
     <script src="./js/agenda.js"></script>
     <script src="./js/app.js"></script>
     <script type="text/javascript">
-        function toast() {
-            // let div = document.createElement("div");
-
-            // classList
-
-            let body = document.querySelector("body");
-        }
-
         let buttons = [
             document.querySelector("#btn-announcements"),
             document.querySelector("#btn-classroom-tasks"),
@@ -95,6 +126,74 @@
                 }
             };
         }
+
+        // ======== SUBJECT ACTIVITIES
+
+        document.querySelector("#btn-cancel-add-subject-activity").onclick = () => {
+            // Close editor
+            let editor = document.querySelector("#subject-activity-editor");
+            let list = document.querySelector("#subject-activity-list");
+
+            editor.classList.add("hidden");
+            list.classList.remove("hidden");
+        };
+
+        document.querySelector("#btn-add-subject-activity").onclick = () => {
+            let editor = document.querySelector("#subject-activity-editor");
+            let list = document.querySelector("#subject-activity-list");
+
+            // Close-open editor and list
+            if (editor.classList.contains("hidden")) {
+                editor.classList.remove("hidden");
+                list.classList.add("hidden");
+            } else if (list.classList.contains("hidden")) {
+                editor.classList.add("hidden");
+                list.classList.remove("hidden");
+            }
+        };
+
+        document.querySelector("#btn-confirm-add-subject-activity").onclick = () => {
+            // Construct subject activity item
+            let item = document.createElement("div");
+            item.classList.add("item");
+
+            let itemSubject = document.createElement("p");
+            itemSubject.classList.add("item-subject");
+            itemSubject.innerHTML = document.querySelector("#input-subject-activity-subject").value;
+
+            let itemTitle = document.createElement("p");
+            itemTitle.classList.add("item-title");
+            itemTitle.innerHTML = document.querySelector("#input-subject-activity-title").value;
+
+            let itemDescription = document.createElement("p");
+            itemDescription.classList.add("item-description");
+            itemDescription.innerHTML = document.querySelector("#input-subject-activity-description").value;
+
+            item.append(itemSubject);
+            item.append(itemTitle);
+            item.append(itemDescription);
+
+            // Add activity to list
+            document.querySelector("#subject-activity-list").append(item);
+
+            // Clear values
+            document.querySelector("#input-subject-activity-title").value = "";
+            document.querySelector("#input-subject-activity-description").value = "";
+
+            // Close editor
+            document.querySelector("#subject-activity-editor").classList.add("hidden");
+            document.querySelector("#subject-activity-list").classList.remove("hidden");
+
+            // Hide ghost item
+            let ghostItem = document.querySelector("#subject-activity-list .ghost-item");
+
+            if (!ghostItem.classList.contains("hidden")) {
+                ghostItem.classList.add("hidden");
+            }
+        };
+        
+
+        // ======== ANNOUNCEMENTS
 
         document.querySelector("#btn-cancel-create-announcement").onclick = () => {
             // Close editor
@@ -145,6 +244,13 @@
             // Close editor
             document.querySelector("#announcement-editor").classList.add("hidden");
             document.querySelector("#announcement-list").classList.remove("hidden");
+
+            // Hide ghost item
+            let ghostItem = document.querySelector("#announcement-list .ghost-item");
+
+            if (!ghostItem.classList.contains("hidden")) {
+                ghostItem.classList.add("hidden");
+            }
         };
     </script>
 </body>

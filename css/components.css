@@ -9,9 +9,10 @@
     padding-bottom: clamp(1vh, 16px, 24px);
 }
 
+.ghost-item,
 .flexbox .item {
     display: inline-block;
-    background-color: #FFF5E2;
+    background-color: var(--theme-color-secondary);
     border: solid 1px black;
     border-radius: 13px;
     padding: 15px;
@@ -22,19 +23,42 @@
 }
 
 .flexbox .item .item-title,
+.flexbox .item .item-subject,
 .flexbox .item .item-description {
     display: block;
 }
 
+
+.item-subject {
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.ghost-item-title,
 .item-title {
+    margin-top: 0.7em;
     margin-bottom: 1.5em;
     font-weight: bold;
     font-size: 1.5em;
 }
 
+.ghost-item-description,
 .item-description {
     font-size: 1em;
 }
+
+
+.ghost-item {
+    background-color: hsl(from var(--theme-color-secondary) h s 88%);
+    color: #0F0F0F;
+    border-style: dashed;
+    border-radius: 0px;
+    font-style: italic;
+}
+
+
+/* STATES */
 
 .hidden {
     display: none;

@@ -8,8 +8,14 @@
 
 /* APP LAYOUT */
 
+#app-name {
+    display: inline-block;
+    font-size: 1.5em;
+    margin: auto;
+}
+
 #app-top-bar {
-    background-color: #526EFE;
+    background-color: var(--theme-color-primary);
     min-height: var(--app-top-bar-height);
     height: var(--app-top-bar-height);
     width: 100vw;
@@ -29,7 +35,7 @@
     top: var(--app-top-bar-height);
     bottom: var(--app-bottom-bar-height);
     overflow-y: auto;
-    scrollbar-width: 0px;
+    scrollbar-width: none;
     /* Hide scroll bar */
 }
 
@@ -39,7 +45,7 @@
     height: var(--app-bottom-bar-height);
     width: 100vw;
     bottom: 0px;
-    background-color: #526EFE;
+    background-color: var(--theme-color-primary);
 }
 
 .tab-ribbon {
@@ -56,7 +62,7 @@
     border: none;
     border-right: solid 1px black;
     /* background-color: white; */
-    background-color: #526EFE;
+    background-color: var(--theme-color-primary);
     min-height: 130px;
 }
 
@@ -74,6 +80,7 @@
     margin-top: 0px;
 }
 
+#btn-add-subject-activity,
 #btn-create-announcement {
     --size: min(max(calc(calc(100vw/100vh) * 100px), 50px), 100px);
     --y-offset: 20px;
@@ -87,40 +94,47 @@
     height: var(--size);
     max-width: 100px;
     max-height: 100px;
-    background-color: #9067df;
+    background-color: var(--theme-color-accent);
     border: solid 2px black;
     border-radius: 13px;
 }
 
+#tab-announcements,
+#tab-subject-activities,
+#subject-activity-editor {
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+#subject-activity-editor-title,
 #announcement-editor-title {
     margin: 0;
     margin-top: 0.5em;
     text-align: center;
 }
 
+#btn-cancel-add-subject-activity,
+#btn-confirm-add-subject-activity,
 #btn-cancel-create-announcement,
 #btn-confirm-create-announcement {
-    background-color: #9067df;
+    background-color: var(--theme-color-accent);
     padding: 15px;
     border: solid 2px black;
     border-radius: 13px;
 }
 
+#input-subject-activity-description,
 #input-announcement-description {
     width: 98vw;
     resize: none;
 }
 
+#input-subject-activity-title,
 #input-announcement-title {
     width: 98vw;
     font-size: 1.1rem;
 }
 
-#app-name {
-    display: inline-block;
-    font-size: 1.5em;
-    margin: auto;
-}
 
 /* MEDIA QUERIES */
 
