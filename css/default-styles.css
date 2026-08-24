@@ -1,0 +1,17 @@
+/* DEFAULTS */
+* {
+    font-family: Arial;
+}
+
+body {
+    margin: 0;
+}
+
+label {
+    display: block;
+    margin-top: 2em;
+}
+
+h1 {
+    text-align:center;
+}

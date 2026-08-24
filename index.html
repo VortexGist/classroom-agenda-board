@@ -5,199 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Classroom Agenda Board</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <style type="text/css">
-        body {
-            margin: 0;
-        }
-
-        :root {
-            --app-top-bar-height: 10vh;
-            --app-content-height: 75vh;
-            --app-bottom-bar-height: 15vh;
-        }
-
-        .flexbox {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            align-items: center;
-            row-gap: 15px;
-            padding-top: clamp(1vh, 16px, 24px);
-            padding-bottom: clamp(1vh, 16px, 24px);
-        }
-
-        .flexbox .item {
-            display: inline-block;
-            background-color: #FFF5E2;
-            border-radius: 13px;
-            padding: 15px;
-            min-width: 30vw;
-            max-width: 45vw;
-            max-height: 45vh;
-            overflow: hidden;
-        }
-
-        .flexbox .item .item-title,
-        .flexbox .item .item-description {
-            display: block;
-        }
-
-        .item-title {
-            margin-bottom: 1.5em;
-            font-weight: bold;
-            font-size: 1.5em;
-        }
-
-        .item-description {
-            font-size: 1em;
-        }
-
-        .app {
-            width: 100%;
-            height: 100%;
-        }
-
-        #app-top-bar {
-            background-color: #526EFE;
-            min-height: var(--app-top-bar-height);
-            height: var(--app-top-bar-height);
-            width: 100vw;
-            position: fixed;
-            z-index: 999;
-        }
-
-        p {
-            font-family: Arial;
-        }
-
-        #app-top-bar p {
-            margin-top: 0px;
-        }
-
-        #app-content {
-            background-color: white;
-            min-height: var(--app-content-height);
-            height: var(--app-content-height);
-            position: relative;
-            top: var(--app-top-bar-height);
-            bottom: var(--app-bottom-bar-height);
-            overflow-y: auto;
-            scrollbar-width: 0px;
-            /* Hide scroll bar */
-        }
-
-        #app-bottom-bar {
-            position: fixed;
-            min-height: 10vh;
-            height: var(--app-bottom-bar-height);
-            width: 100vw;
-            bottom: 0px;
-            background-color: #526EFE;
-        }
-
-        .tab-ribbon {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            /* display: flex; */
-            width: 100%;
-            height: 100%;
-            justify-content: space-evenly;
-        }
-
-        .tab-ribbon .ribbon-item {
-            flex: content;
-            border: none;
-            border-right: solid 1px black;
-            /* background-color: white; */
-            background-color: #526EFE;
-            min-height: 130px;
-        }
-
-        .tab-ribbon:last-child {
-            border: none;
-        }
-
-        .tab-ribbon .selected {
-            background-color: #7F94FF;
-        }
-
-        #tab-title {
-            text-align: center;
-            font-family: Arial;
-            margin-top: 0px;
-        }
-
-        #btn-create-announcement {
-            --size: min(max(calc(calc(100vw/100vh) * 100px), 50px), 100px);
-            --y-offset: 20px;
-
-            position: fixed;
-            right: 20px;
-            bottom: calc(var(--app-bottom-bar-height) + var(--y-offset));
-            font-size: var(--size);
-            line-height: var(--size);
-            width: var(--size);
-            height: var(--size);
-            max-width: 100px;
-            max-height: 100px;
-            background-color: #9067df;
-            border: solid 2px black;
-            border-radius: 13px;
-        }
-
-        #announcement-editor-title {
-            margin: 0;
-            margin-top: 0.5em;
-            text-align: center;
-
-        }
-
-        #btn-cancel-create-announcement,
-        #btn-confirm-create-announcement {
-            background-color: #9067df;
-            padding: 15px;
-            border: solid 2px black;
-            border-radius: 13px;
-        }
-
-        #btn-cancel-create-announcement {
-            background-color: #9067df;
-        }
-
-        #input-announcement-description {
-            width: 100vw;
-            resize: none;
-        }
-
-        #input-announcement-title {
-            width: 100vw;
-            font-size: 1.1rem;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        label {
-            display: block;
-            margin-top: 2em;
-        }
-
-        * {
-            font-family: Arial;
-        }
-
-        #app-name {
-            display: inline-block;
-            font-size: 1.5em;
-            margin: auto;
-        }
-
-        /* Mobile */
-        @media (width <=600px) {}
-    </style>
+    <link rel="stylesheet" href="./css/default-styles.css">
+    <link rel="stylesheet" href="./css/app-layout.css">
+    <link rel="stylesheet" href="./css/components.css">
 </head>
 
 <body>
@@ -205,12 +15,7 @@
         <p id="app-name">Classroom Agenda Hub</p>
     </div>
     <div id="app-content">
-        <div id="tab-classroom-tasks" class="hidden">
-            <h1>Classroom Tasks</h1>
-        </div>
-        <div id="tab-subject-activities" class="hidden">
-            <h1>Subject Activities</h1>
-        </div>
+        <!-- ANNOUNCEMENTS -->
         <div id="tab-announcements">
             <button id="btn-create-announcement">+</button>
             <div id="announcement-editor" class="hidden">
@@ -224,13 +29,18 @@
             </div>
             <div id="announcement-list" class="flexbox">
                 <div class="item">
-                    <p class="item-title">Title</p>
-                    <p class="item-description">Description Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quasi
-                        cum mollitia exercitationem neque commodi eos magni voluptas, iure quis assumenda ea quam quidem
-                        deserunt sit officiis corporis quod porro libero?</p>
+                    <p class="item-title">Get Started</p>
+                    <p class="item-description">Create a new announcement by clicking the plus button on the bottom right</p>
                 </div>
             </div>
+        </div>
+        <!-- CLASSROOM TASKS -->
+        <div id="tab-classroom-tasks" class="hidden">
+            <h1>Classroom Tasks</h1>
+        </div>
+        <!-- SUBJECT ACTIVITIES -->
+        <div id="tab-subject-activities" class="hidden">
+            <h1>Subject Activities</h1>
         </div>
     </div>
     <div id="app-bottom-bar">
@@ -240,7 +50,6 @@
             <button id="btn-subject-activities" class="ribbon-item">📖Subject Activities</button>
         </div>
     </div>
-
     <script src="./js/database.js"></script>
     <script src="./js/agenda.js"></script>
     <script src="./js/app.js"></script>
@@ -270,6 +79,7 @@
             let tab = tabs[i];
             btn.onclick = () => {
                 if (!btn.classList.contains("selected")) {
+                    // Hide and deselect all tabs and tab buttons
                     for (let j = 0; j < buttons.length; j++) {
                         let b = buttons[j];
                         b.classList.remove("selected");
@@ -278,7 +88,9 @@
                             t.classList.add("hidden");
                         }
                     }
+                    // Show current tab
                     tab.classList.remove("hidden");
+                    // Select current tab button
                     btn.classList.add("selected");
                 }
             };
