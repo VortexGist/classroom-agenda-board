@@ -15,3 +15,10 @@ label {
 h1 {
     text-align:center;
 }
+
+/* BRANDING */
+:root {
+    --theme-color-primary: #526EFE;
+    --theme-color-secondary: #FFF5E2;
+    --theme-color-accent: #9067DF;
+}
