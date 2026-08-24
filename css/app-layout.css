@@ -97,6 +97,7 @@
     background-color: var(--theme-color-accent);
     border: solid 2px black;
     border-radius: 13px;
+    transition: background-color 0.3s ease;
 }
 
 #tab-announcements,
@@ -145,6 +146,23 @@
 #input-announcement-title {
     width: 98vw;
     font-size: 1.1rem;
+}
+
+/* HOVER EFFECTS */
+
+#btn-cancel-add-subject-activity:hover,
+#btn-confirm-add-subject-activity:hover,
+#btn-cancel-create-announcement:hover,
+#btn-confirm-create-announcement:hover,
+#btn-add-subject-activity:hover,
+#btn-create-announcement:hover,
+#btn-add-day1-cleaner:hover,
+#btn-add-day2-cleaner:hover,
+#btn-add-day3-cleaner:hover,
+#btn-add-day4-cleaner:hover,
+#btn-add-day5-cleaner:hover {
+    background-color: hsl(from var(--theme-color-accent) h s 45%);
+    color: white;
 }
 
 
