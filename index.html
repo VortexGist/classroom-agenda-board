@@ -199,7 +199,7 @@
                 }
 
                 let listDay = document.querySelector("#day" + i + "-cleaner-list");
-                
+
                 // Hide ghost message
                 listDay.querySelector(".ghost-list-item").classList.add("hidden");
 
@@ -234,6 +234,19 @@
         };
 
         document.querySelector("#btn-confirm-add-subject-activity").onclick = () => {
+            let titleValue = document.querySelector("#input-subject-activity-title").value;
+            let descriptionValue = document.querySelector("#input-subject-activity-description").value;
+
+            if (titleValue.trim() === "") {
+                alert("Please add activity title");
+                return;
+            }
+
+            if (descriptionValue.trim() === "") {
+                alert("Please add activity description");
+                return;
+            }
+
             // Construct subject activity item
             let item = document.createElement("div");
             item.classList.add("item");
@@ -244,11 +257,11 @@
 
             let itemTitle = document.createElement("p");
             itemTitle.classList.add("item-title");
-            itemTitle.innerHTML = document.querySelector("#input-subject-activity-title").value;
+            itemTitle.innerHTML = titleValue;
 
             let itemDescription = document.createElement("p");
             itemDescription.classList.add("item-description");
-            itemDescription.innerHTML = document.querySelector("#input-subject-activity-description").value;
+            itemDescription.innerHTML = descriptionValue;
 
             item.append(itemSubject);
             item.append(itemTitle);
@@ -300,17 +313,30 @@
         };
 
         document.querySelector("#btn-confirm-create-announcement").onclick = () => {
+            let titleValue = document.querySelector("#input-announcement-title").value;
+            let descriptionValue = document.querySelector("#input-announcement-description").value;
+
+            if (titleValue.trim() === "") {
+                alert("Please add announcement title");
+                return;
+            }
+
+            if (descriptionValue.trim() === "") {
+                alert("Please add announcement description");
+                return;
+            }
+
             // Construct announcement item
             let item = document.createElement("div");
             item.classList.add("item");
 
             let itemTitle = document.createElement("p");
             itemTitle.classList.add("item-title");
-            itemTitle.innerHTML = document.querySelector("#input-announcement-title").value;
+            itemTitle.innerHTML = titleValue;
 
             let itemDescription = document.createElement("p");
             itemDescription.classList.add("item-description");
-            itemDescription.innerHTML = document.querySelector("#input-announcement-description").value;
+            itemDescription.innerHTML = descriptionValue;
 
             item.append(itemTitle);
             item.append(itemDescription);
