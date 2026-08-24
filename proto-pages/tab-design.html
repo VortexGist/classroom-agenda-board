@@ -10,6 +10,69 @@
     <!-- Lagay ka rito ng mga html structure ng mga tabs pati rin yung designs as well 
      para malaman ko what would work habang inaasikaso ko yung mga technical database stuff
      -->
+     <div class="app">
+         <header>
+             <h1 id="pageTitle">Announcement</h1>
+             <!--dan mag add ako dito ng search bar para pwede nilang balik balikan ung mga task na naskip nila-->
+              <input type="text" id="searchInput" placeholder="Search Announcement" oninput="searchItems()">
+         </header>
+         <!--content-->
+         <main>
+             <div class="cards" id="cards-container">
+                 <div class="card">
+                     <h3>Announcement</h3>
+                     <p></p>
+                 </div>
+                 
+                 <div class="card">
+                     <h3>Announcement</h3><p></p>
+                 </div>
+                 
+                 <div class="card">
+                     <h3>Announcement</h3>
+                     <p></p>
+                 </div>
+                 
+                 <div class="card">
+                     <h3>Announcement</h3><p></p>
+                 </div>
+                 
+                 <div class="card">
+                     <h3>Announcement</h3><p></p>
+                 </div>
+                 
+                 <div class="card">
+                     <h3>Announcement</h3><p></p>
+                 </div>
+             </div>
+             
+             <!--add button-->
+             <div class="add-area"><button onclick="addItem()">+</button>
+             </div>
+             </main>
+             
+            <!--bottom tabs-->
+            <nav class="bottom-tabs">
+                <button
+                class="tab active" onclick="changeTab('Announcement')"><span class="tab-icon">📣</span><span>Announcements</span></button>
+                
+                <button
+                class="tab"
+                onclick="changeTab('Classroom Task')">
+
+                <span class="tab-icon">📝</span>
+                <span>Classroom Task</span>
+            </button>
+            
+            <button
+                class="tab"
+                onclick="changeTab('Subject Activities')">
+
+                <span class="tab-icon">📖</span>
+                <span>Subject Activities</span>
+            </button>
+            </nav>
+     </div>
     <script src="./../js/app.js"></script>
     <script src="./../js/database.js"></script>    
     <script src="./../js/agenda.js"></script>

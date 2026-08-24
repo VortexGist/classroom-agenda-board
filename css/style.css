@@ -1,3 +1,118 @@
 /*
     Add base styles here
 */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+.app {
+width: 100%;
+max-width: 600px;
+min-height: 100vh;
+background: white;
+display: flex;
+flex-direction: column;
+}
+header {
+background: #ADD8E6;
+padding: 20px 20px 20px;
+}
+header h1{
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #222;
+    border-radius: 8px;
+    font-size: 16px;
+}
+main{
+    flex: 1;
+    padding: 30px;
+}
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px; 
+}
+.card {
+    height: 145px;
+    border: 5px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+}
+.card h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.card p{
+font-size: 14px;
+}
+.add-area {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.add-area button{
+    width: 60px;
+    height: 60px;
+    background: #9067df;
+    font-size: 20px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 50px;
+    line-height: 50px;
+    cursor: pointer;
+ }
+ .add-area button:hover {
+     background: darkviolet;
+}
+.bottom-tabs{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    border-top: 3px solid black;
+}
+.tab{
+    min-height: 130px;
+    background: #7898c1;
+    border: none;
+    border-right: 3px solid black;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+/*continue ko bukas ah*/
+.tab:last-child{
+    border-right: none;
+}
+.tab-icon {
+    font-size: 50px;
+    color: #000;
+}
+.tab.active{
+    background: #7898c1;
+}
+.tab:hover{
+    background: #6686ae;
+}
+
