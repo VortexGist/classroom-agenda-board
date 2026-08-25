@@ -2,8 +2,8 @@
 
 :root {
     --app-top-bar-height: 10vh;
-    --app-content-height: 75vh;
-    --app-bottom-bar-height: 15vh;
+    --app-content-height: 80vh;
+    --app-bottom-bar-height: 10vh;
 }
 
 /* APP LAYOUT */
