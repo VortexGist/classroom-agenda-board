@@ -93,7 +93,7 @@
 }
 
 .tab-ribbon .ribbon-item {
-    flex: content;
+    /* flex: none; */
     border: none;
     border-right: solid 1px black;
     /* background-color: white; */
