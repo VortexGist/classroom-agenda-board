@@ -60,6 +60,12 @@
     padding-bottom: 0.3em;
 }
 
+#tab-subject-activities,
+#tab-announcements,
+#tab-cleaners {
+    padding-bottom: var(--app-bottom-bar-height);
+}
+
 #app-bottom-bar {
     position: fixed;
     min-height: var(--app-bottom-bar-height);
