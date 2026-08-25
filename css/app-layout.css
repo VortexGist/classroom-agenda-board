@@ -13,6 +13,7 @@
     height: 100%;
     width: auto;
     aspect-ratio: 1 / 1;
+    margin: 0px;
 }
 
 #app-name {
@@ -36,8 +37,6 @@
 #app-top-bar p {
     margin-top: 0px;
 }
-
-
 
 #tab-cleaners * {
     margin-top: 0px;
@@ -135,6 +134,7 @@
     transition: background-color 0.3s ease;
 }
 
+#tab-cleaners,
 #tab-announcements,
 #tab-subject-activities,
 #subject-activity-editor {
