@@ -19,6 +19,7 @@
     display: inline-block;
     font-size: 1.5em;
     color: white;
+    margin: 0px;
     text-shadow: 2px 2px 0px black;
     padding-top: 0.5em;
 }
@@ -36,6 +37,39 @@
     margin-top: 0px;
 }
 
+
+
+#tab-cleaners * {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#tab-cleaners h1 {
+    padding-top: 0.5em;
+}
+
+#tab-cleaners ol,
+#tab-cleaners h3 {
+    padding-top: 0.7em;
+}
+
+#tab-cleaners ol {
+    padding-bottom: 0.7em;
+}
+
+#tab-cleaners ol li {
+    padding-bottom: 0.3em;
+}
+
+#app-bottom-bar {
+    position: fixed;
+    min-height: var(--app-bottom-bar-height);
+    height: var(--app-bottom-bar-height);
+    width: 100vw;
+    bottom: 0px;
+    background-color: var(--theme-color-primary);
+}
+
 #app-content {
     background-color: white;
     min-height: var(--app-content-height);
@@ -46,15 +80,6 @@
     overflow-y: auto;
     scrollbar-width: none;
     /* Hide scroll bar */
-}
-
-#app-bottom-bar {
-    position: fixed;
-    min-height: var(--app-bottom-bar-height);
-    height: var(--app-bottom-bar-height);
-    width: 100vw;
-    bottom: 0px;
-    background-color: var(--theme-color-primary);
 }
 
 .tab-ribbon {
