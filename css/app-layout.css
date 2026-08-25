@@ -9,9 +9,10 @@
 /* APP LAYOUT */
 
 #app-name {
-    display: inline-block;
+    display: block;
     font-size: 1.5em;
     margin: auto;
+    text-align: center;
 }
 
 #app-top-bar {
@@ -138,14 +139,30 @@
 
 #input-subject-activity-description,
 #input-announcement-description {
+    background-color: var(--theme-color-secondary);
     width: 98vw;
     resize: none;
+    border: solid 1px var(--theme-color-secondary-dark);
+    border-radius: 3px;
+}
+
+#input-day1-cleaner,
+#input-day2-cleaner,
+#input-day3-cleaner,
+#input-day4-cleaner,
+#input-day5-cleaner {
+    background-color: var(--theme-color-secondary);
+    border: solid 1px var(--theme-color-secondary-dark);
+    border-radius: 3px;
 }
 
 #input-subject-activity-title,
 #input-announcement-title {
+    background-color: var(--theme-color-secondary);
     width: 98vw;
     font-size: 1.1rem;
+    border: solid 1px var(--theme-color-secondary-dark);
+    border-radius: 3px;
 }
 
 /* HOVER EFFECTS */

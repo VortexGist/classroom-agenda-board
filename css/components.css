@@ -60,6 +60,19 @@
     list-style: none;
     font-style: italic;
 }
+
+.btn-remove-list-item {
+    background-color: var(--theme-color-accent);
+    border: solid 1px black;
+    border-radius: 3px;
+    margin-left: 1em;
+}
+
+.btn-remove-list-item:hover {
+    background-color: hsl(from var(--theme-color-accent) h s 45%);
+    color: white;
+}
+
 /* STATES */
 
 .hidden {

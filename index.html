@@ -171,7 +171,7 @@
 
         function constructCleanerListItem(cleanerName, cleanerListElement) {
             let listItemButtonRemove = document.createElement("button");
-            listItemButtonRemove.innerHTML = "X";
+            listItemButtonRemove.innerHTML = "remove";
             listItemButtonRemove.classList.add("btn-remove-list-item");
             listItemButtonRemove.onclick = () => {
                 if (cleanerListElement.children.length - 1 === 1) {
@@ -195,6 +195,7 @@
 
                 // Dont add empty names
                 if (cleanerName.trim() === "") {
+                    alert("Cleaner name cannot be empty");
                     return;
                 }
 
