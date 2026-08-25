@@ -71,6 +71,7 @@
 }
 
 #app-content {
+    display: absolute;
     background-color: white;
     min-height: var(--app-content-height);
     height: var(--app-content-height);
